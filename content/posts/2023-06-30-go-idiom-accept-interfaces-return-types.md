@@ -10,7 +10,7 @@ tags:
   - backend
 ---
 
-When writing functions or methods Go, it is idiomatic to accept interfaces and return types as it helps keep your Go code flexible, reusable, and robust against changes in implementation.
+When writing functions or methods in Go, it is idiomatic to accept interfaces and return types as it helps keep your Go code flexible, reusable, and robust against changes in implementation.
 
 We'll discuss some examples of this idiom, but it should be noted that this is not a hard and fast rule. There are times when it makes sense to accept concrete types and return interfaces, or to accept interfaces and return concrete types. The important thing is to understand the tradeoffs and make the best decision for your particular situation.
 
@@ -236,7 +236,7 @@ In the `store` package, we can see that the `NewFileStore` function returns a co
 
 ```go
 // NewFileStore returns an instance of FileStore.
-func NewFileStore(path string, fs utilfs.Filesystem) (Store, error) {
+func NewFileStore(path string, fs utilfs.Filesystem) (*FileStore, error) {
 	// Implementation
 
 	return &FileStore{directoryPath: path}, nil
